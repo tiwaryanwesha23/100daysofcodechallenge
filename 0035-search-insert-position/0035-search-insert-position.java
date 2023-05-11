@@ -15,6 +15,5 @@ public class Solution {
             }
         }
         return h;
-        // return target > nums[m]  ? m+1 : m;
     }
 }
