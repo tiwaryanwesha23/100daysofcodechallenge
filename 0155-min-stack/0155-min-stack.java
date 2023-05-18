@@ -25,5 +25,3 @@ class MinStack {
         return min;
     }
 }
-
-
