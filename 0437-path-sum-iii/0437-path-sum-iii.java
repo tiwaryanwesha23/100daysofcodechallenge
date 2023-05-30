@@ -4,7 +4,7 @@ class Solution {
 
     public int pathSum(TreeNode root, int targetSum) {
         cnt.put(0L, 1);
-        this.targetSum = targetSum;
+        this.targetSum = targetSum;  //this keyword refers to the current object in a method or constructor
         return dfs(root, 0);
     }
 
