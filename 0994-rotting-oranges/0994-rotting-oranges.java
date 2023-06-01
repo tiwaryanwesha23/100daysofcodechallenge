@@ -39,3 +39,4 @@ class Solution {
         return freshCount == 0 ? step : -1;
     }
 }
+
