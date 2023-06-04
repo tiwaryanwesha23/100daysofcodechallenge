@@ -5,8 +5,6 @@ class Solution {
         for (int num : nums) sum += num;
         if (sum % 2 != 0) return false;
         sum /= 2;
-        
-        // dp
         boolean[] dp = new boolean[sum + 1];  // dp[j] = false by default
         dp[0] = true;
         for (int i = 0; i < nums.length; i++) {
