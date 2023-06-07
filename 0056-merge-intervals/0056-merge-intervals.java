@@ -1,23 +1,19 @@
- class Solution {
- 	public int[][] merge(int[][] intervals) {
- 		if(intervals == null || intervals.length <= 1) return intervals;
- 		Arrays.sort(intervals, (a, b)->{
- 			return a[0] == b[0] ? a[1] - b[1]: a[0] - b[0];
- 		});
- 		int len = intervals.length;
- 		List<int[]> result = new ArrayList<>();
- 		int start = intervals[0][0];
- 		int end = intervals[0][1];
- 		for(int i = 1; i < len; i++){
- 			if(intervals[i][0] <= end){
- 				end = Math.max(intervals[i][1],end);
- 			}else{
- 				result.add(new int[]{start, end});
- 				start = intervals[i][0];
- 				end = Math.max(intervals[i][1],end);
- 			}
- 		}
- 		result.add(new int[]{start, end});
- 		return result.toArray(new int[result.size()][2]);
- 	}
- }
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+        int st = intervals[0][0], ed = intervals[0][1];
+        List<int[]> ans = new ArrayList<>();
+        for (int i = 1; i < intervals.length; ++i) {
+            int s = intervals[i][0], e = intervals[i][1];
+            if (ed < s) {
+                ans.add(new int[] {st, ed});
+                st = s;
+                ed = e;
+            } else {
+                ed = Math.max(ed, e);
+            }
+        }
+        ans.add(new int[] {st, ed});
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
