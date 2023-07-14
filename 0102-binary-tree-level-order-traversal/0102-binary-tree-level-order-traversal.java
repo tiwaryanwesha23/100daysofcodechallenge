@@ -23,7 +23,7 @@ public class Solution {
         queue.add(root);
         while (!queue.isEmpty()) {
             LinkedList<Integer> curLevel = new LinkedList<>();
-            for (int i = 0, size = queue.size(); i < size; i++) { // use only 1 queue with this kind of for loop
+            for (int i = 0, size = queue.size(); i < size; i++) { 
                 TreeNode node = queue.remove();
                 curLevel.add(node.val);
                 if (node.left != null) {
